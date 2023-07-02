@@ -3,7 +3,7 @@
   //サイドバーの表示領域を指定(35%)
   flex: 0.35;
   height: 100vh;
-  background-color:#313338 ; //後でHomeに移動させる
+  background-color: #313338; //後でHomeに移動させる
 
   .sidebarLeft {
     display: flex;
@@ -30,7 +30,36 @@
     }
   }
 
-  .sidebarRight{
-    background-color:#2b2d31 ;
+  .sidebarRight {
+    background-color: #2b2d31;
+    width: 300px;
+
+    .sidebarTop {
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 20px;
+    }
+
+    .sidebarChannels {
+      padding: 13px;
+
+      .sidebarChannelsHeader {
+        color: #ffffff;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 5px;
+
+        .sidebarHeader {
+          display: flex;
+        }
+
+        .sidebarAddIcon {
+          cursor: pointer;
+        }
+      }
+    }
   }
 }
