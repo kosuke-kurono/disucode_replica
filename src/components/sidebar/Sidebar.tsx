@@ -6,14 +6,21 @@ import SidebarChannel from './SidebarChannel';
 import MicIcon from '@mui/icons-material/Mic';
 import HeadphonesIcon from '@mui/icons-material/Headphones';
 import SettingsIcon from '@mui/icons-material/Settings';
+import { auth } from '../../firebase';
+import { useAppSelector } from '../../app/hooks';
 
 const Sidebar = () => {
+  const user= useAppSelector((state) =>state.user);
+
   return (
     <div className="sidebar">
       {/*サイドバー左*/}
       <div className="sidebarLeft">
         <div className="serverIcon">
           <img src="./discodeIcon.png" alt="" />
+        </div>
+        <div className="serverIcon">
+          {/* <img src="./logo192.png" alt="" /> */}
         </div>
         <div className="serverIcon">
           {/* <img src="./logo192.png" alt="" /> */}
@@ -34,21 +41,25 @@ const Sidebar = () => {
             </div>
             <AddIcon className="sidebarAddIcon" />
           </div>
-          <div className='sideberChannelList'>
-            <SidebarChannel/>
+          <div className="sideberChannelList">
+            <SidebarChannel />
           </div>
-          <div className='sidebarFooter'>
-            <div className='sidebarUser'>
-              <img src="./icon_YanHam.png" alt="" />
-              <div className='userName'>
-                <h3>kurono</h3>
-                <span>#1234</span>
+          <div className="sidebarFooter">
+            <div className="sidebarUser">
+              <img
+                src={user?.photo}
+                alt=""
+                onClick={() => auth.signOut()}
+              />
+              <div className="userName">
+                <h3>{user?.displayName}</h3>
+                <span>#{user?.uid.substring(0,4)}</span>
               </div>
             </div>
-            <div className='sidebarSound'>
-              <MicIcon/>
-              <HeadphonesIcon/>
-              <SettingsIcon/>
+            <div className="sidebarSound">
+              <MicIcon />
+              <HeadphonesIcon />
+              <SettingsIcon />
             </div>
           </div>
         </div>
