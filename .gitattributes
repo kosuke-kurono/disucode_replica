@@ -1,2 +1,2 @@
-src/index.scss merge=ours
- .gitattributes merge=ours
+#src/index.scss merge=ours
+# .gitattributes merge=ours
